@@ -1,7 +1,7 @@
 .app {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .app h1 {
@@ -21,7 +21,8 @@
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-    max-width: 500px;
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .add-player-form.hidden {
@@ -46,6 +47,8 @@
 .add-player-form button {
     padding: 0.6em 1.2em;
     white-space: nowrap;
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
 .add-player-form button:disabled {
@@ -58,6 +61,12 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .players-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 .player-card {
@@ -97,8 +106,10 @@
     color: white;
     border: none;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +117,7 @@
     font-size: 1.2em;
     line-height: 1;
     padding: 0;
+    touch-action: manipulation;
 }
 
 .remove-btn:hover {
@@ -174,6 +186,12 @@
     margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+    .round-scores {
+        grid-template-columns: 1fr;
+    }
+}
+
 .score-input-group {
     display: flex;
     flex-direction: column;
@@ -195,13 +213,14 @@
 .add-round-btn {
     display: block;
     width: 100%;
-    max-width: 300px;
     margin: 0 auto;
     padding: 0.8em 1.5em;
     font-size: 1.1em;
     background-color: #646cff;
     color: white;
     border: none;
+    min-height: 44px;
+    touch-action: manipulation;
 }
 
 .add-round-btn:hover:not(:disabled) {
@@ -230,6 +249,94 @@
 .winner-announcement p {
     font-size: 1.5em;
     font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .app {
+        padding: 1rem;
+    }
+
+    .app h1 {
+        font-size: 2em;
+        margin-bottom: 1.5rem;
+    }
+
+    .setup-section h2 {
+        font-size: 1.5em;
+    }
+
+    .add-player-form {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .add-player-form button {
+        width: 100%;
+    }
+
+    .player-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .round-section {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .round-section h2 {
+        font-size: 1.5em;
+    }
+
+    .add-round-btn {
+        max-width: 100%;
+        padding: 1em 1.5em;
+        font-size: 1.1em;
+    }
+
+    .winner-announcement {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .winner-announcement h2 {
+        font-size: 1.5em;
+    }
+
+    .winner-announcement p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .app {
+        padding: 0.75rem;
+    }
+
+    .app h1 {
+        font-size: 1.75em;
+    }
+
+    .player-card {
+        padding: 0.75rem;
+    }
+
+    .player-header h3 {
+        font-size: 1.1em;
+    }
+
+    .round-section {
+        padding: 1rem;
+    }
+
+    .score-input-group input {
+        font-size: 16px;
+    }
+
+    .add-player-form input {
+        font-size: 16px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
